@@ -35,10 +35,26 @@ client.on('message', msg => {
     msg.channel.send(localUser.avatarURL)
   }
 
+  //TODO: Look for a way to find more images.
+  if(command === 'cat'){
+    msg.reply("https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Faehnt.com%2Fveterinary-blog%2Fwp-content%2Fuploads%2F2015%2F06%2FiStock_000001997583_Medium1.jpg&f=1")
+  }
+
+  if(command === 'whisper')
+    if (args[0] == null) return;
+    let localUser = msg.mentions.users.first()
+    var string = ' '
+    args.forEach(element => {
+      string += ' ' + element
+    });
+    localUser.send(string)
+    msg.delete()
+    msg.channel.send('Someone send a whisper to: ' + localUser)
+
   });
 
   client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+    const channel = member.guild.channels.find(ch => ch.name === config.welcome);
     if (!channel) return;
     channel.send(`Hombreeee, ${member}`);
   });
