@@ -1,7 +1,14 @@
 const dotenv = require('dotenv');
-const config = require('./config.json')
-const {Client, RichEmbed} = require('discord.js')
+const config = require('./config.json');
+const {Client, RichEmbed} = require('discord.js');
 const client = new Client();
+
+//Alarm
+var date = new Date()
+
+//momentjs
+var moment = require('moment')
+moment().format();
 
 dotenv.load();
 
@@ -12,30 +19,33 @@ client.on('ready', () => {
 
 client.on('message', msg => {
 
-  //Procesar comando
-  const prefix = config.prefix
-  if (msg.content.indexOf(prefix) !== 0) return;
-  const args = msg.content.slice(prefix).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-  const channel = msg.channel
+  //separate the command into prefix|command|args...
   
+  if (msg.author.bot) return;
+  if (msg.content.indexOf(config.prefix) !== 0) return;
+  const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 
   switch(command){
+    
     case 'ping':
-      ping(channel)
+      msg.channel.send("pong")
       break
     
+    case 'sendcats':
+      msg.channel.send("Sending cats every 24h.")
+      break
+    
+    case 'nomorecats':
+      msg.channel.send("No more cats... :confused:")
+
+      break
+
     default:
-      channel.send("Command not found. Use '" + prefix + "help'.")
+      msg.channel.send("Command not found " + msg +" . Use " + config.prefix + "help.")
       break
   }
 
-
 });
 
-function ping(channel){
-  channel.send("pong")
-}
-
-  
 client.login(process.env.TOKEN)
