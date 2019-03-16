@@ -34,7 +34,7 @@ client.on('message', msg => {
     command.execute(msg, args)
   } catch (error){
     msg.channel.send(`Command $${commandName} not found. Need help? Use $help.`)
-    //console.log(error)
+    console.log(error)
   }
 
 });
