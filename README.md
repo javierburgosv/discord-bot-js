@@ -12,10 +12,10 @@ This project is focused on learning and follows this objectives:
 
 ## Command List
 
-- avatar <user>: Sends the profile pic of the user mentioned.
+- avatar [user]: Sends the profile pic of the user mentioned.
 - bye: Kicks the bot out of the voice channel.
 - cat: Ask for a random cat image.
 - help: Sends the link to this page.
 - ping: Ask for an answer message (Useful to see if the bot is responding propertly).
-- play <url>: The bot joins your voice-channel and starts playing the sound of the video.
-- whisper <user> <message>: Sends an anonymous message to the user mentioned.
+- play [url]: The bot joins your voice-channel and starts playing the sound of the video.
+- whisper [user] [message]: Sends an anonymous message to the user mentioned.
