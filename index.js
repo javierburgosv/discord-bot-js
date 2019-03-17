@@ -16,6 +16,7 @@ for (const file of commandFiles){
 }
 
 client.on('ready', () => {
+    console.log(`Mikasa Bot Online`);
     console.log(`Logged in as ${client.user.tag}!`);
   });
 
