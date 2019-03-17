@@ -21,7 +21,7 @@ client.on('ready', () => {
   });
 
 
-client.on('message', msg => {
+client.on('message', async msg => {
 
   //separate the command into prefix|command|args...
   if (msg.author.bot) return;
