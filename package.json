@@ -6,7 +6,11 @@
   "dependencies": {
     "discord.js": "^11.4.2",
     "dotenv": "^6.2.0",
-    "moment-strftime": "^0.5.0"
+    "ffmpeg-binaries": "^4.0.0",
+    "moment-strftime": "^0.5.0",
+    "node-gyp": "^3.8.0",
+    "node-opus": "^0.3.1",
+    "ytdl-core": "^0.29.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

@@ -30,7 +30,7 @@ client.on('message', msg => {
   const command = client.commands.get(commandName)
 
   try{
-    console.log(commandName)
+    console.log("Command sent: " + commandName)
     command.execute(msg, args)
   } catch (error){
     msg.channel.send(`Command $${commandName} not found. Need help? Use $help.`)
