@@ -18,5 +18,5 @@ This project is focused on learning and follows this objectives:
 - help: Sends the link to this page.
 - ping: Ask for an answer message (Useful to see if the bot is responding propertly).
 - play [url]: The bot joins your voice-channel and starts playing the sound of the video.
-- skip: Jumps to the next song possible.
+- skip: Jumps to the next song.
 - whisper [user] [message]: Sends an anonymous message to the user mentioned.
