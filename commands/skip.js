@@ -1,27 +1,20 @@
 module.exports = {
-    name: "play",
-    description: "Reproduces the sound of a Youtube video on the voice channel.",
+    name: "skip",
+    description: "Skip the currently playing song.",
     execute(message, args, music){
         const ytdl = require('ytdl-core');
         const { voiceChannel } = message.member;
-        
-        if (!voiceChannel) return message.reply('Please join a voice channel first!');
-        try{
-            if (voiceChannel.connection != null && voiceChannel.connection.speaking) {
-                music.add(args[0])
-                return message.channel.send('Video Added!')
-            }
-        } catch(e){
-            console.log(e)
-        }
-        
+
+        if (music.size() <= 1 || !voiceChannel.connection.speaking) return message.channel.send("I can't! >.<'")
+
+        voiceChannel.leave()
         voiceChannel.join().then(connection => {
 
             var dispatcher = connection;
 
             try{
-                music.add(args[0])
                 const stream = ytdl(music.getFirst(), { filter: 'audioonly'});
+                music.print()
                 dispatcher = connection.playStream(stream);
                 message.channel.send(`Playing Video!`)
                 
@@ -39,10 +32,8 @@ module.exports = {
                     console.log("Song ended")
                 });
             } catch (e) {
-                console.log
+                return message.channel.send("No more videos to play :[");
             }
-        });
-            
+        })
     },
-
 }

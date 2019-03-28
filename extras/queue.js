@@ -11,8 +11,12 @@ class Queue {
 
     getFirst(){
         var first =  this.queue[0];
-        this.queue.shift();
         return first;
+    }
+
+    removeFirst(){
+        this.queue.shift();
+        this.print()
     }
 
     size(){
